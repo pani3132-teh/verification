@@ -1,0 +1,18 @@
+// ===========================
+// CLASS DEFINITIONS
+// ===========================
+class pkt;
+  rand bit prstn;
+  rand bit [31:0] paddr;
+  rand bit [31:0] pwdata;
+  rand bit psel0;
+  rand bit penable;
+  rand bit pwrite;
+  rand bit [3:0] pstrobe;
+endclass
+
+class com;
+  static mailbox g2b = new();
+  static virtual apb_interface vif;
+endclass
+
