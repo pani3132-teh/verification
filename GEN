@@ -1,0 +1,24 @@
+class gen;
+  pkt p;
+  task gen_task();
+    p = new();
+    if (!p.randomize() with {
+      p.paddr == 8;
+      p.pwrite == 1;
+      p.psel0 == 1;
+      p.penable == 1;
+      p.pstrobe == 4'b0111;
+    }) $fatal("Randomization failed");
+    com::g2b.put(p);
+
+    p = new();
+    if (!p.randomize() with {
+      p.paddr == 8;
+      p.pwrite == 0;
+      p.psel0 == 1;
+      p.penable == 1;
+      p.pstrobe == 4'b0111;
+    }) $fatal("Randomization failed");
+    com::g2b.put(p);
+  endtask
+endclass
