@@ -1,0 +1,16 @@
+class bfm;
+  pkt p;
+  task bfm_task();
+    repeat (2) begin
+      @(posedge com::vif.pclk);
+      com::g2b.get(p);
+      com::vif.prstn   = p.prstn;
+      com::vif.paddr   = p.paddr;
+      com::vif.pwdata  = p.pwdata;
+      com::vif.psel0   = p.psel0;
+      com::vif.penable = p.penable;
+      com::vif.pwrite  = p.pwrite;
+      com::vif.pstrobe = p.pstrobe;
+    end
+  endtask
+endclass
