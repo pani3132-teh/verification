@@ -1,0 +1,16 @@
+// ===========================
+// INTERFACE
+// ===========================
+interface apb_interface (input bit pclk);
+  logic prstn;
+  logic [31:0] paddr;
+  logic [31:0] pwdata;
+  logic psel0;
+  logic penable;
+  logic pwrite;
+  logic [3:0] pstrobe;
+  logic [31:0] prdata;
+  logic pready;
+  logic pslaverr;
+endinterface
+
